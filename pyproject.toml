@@ -1,0 +1,26 @@
+[project]
+name = "modular-coevolution-examples"
+version = "2024.12.11"
+description = "Example projects demonstrating the modular-coevolution library"
+authors = [
+    {name = "Sean N. Harris", email = "snh0037@auburn.edu"}
+]
+
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "pycairo",
+    "pillow",
+    "tqdm",
+    "modular-coevolution@git+https://github.com/SeanNHarris/modular-coevolution",
+]
+
+[project.urls]
+Github = "https://github.com/AU-ATLAS-N/constellation-coevolution"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["constellationcoevolution*"]

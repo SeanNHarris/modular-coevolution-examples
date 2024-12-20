@@ -1,0 +1,40 @@
+log_folder = "geneticprogramming/twocars/default"
+
+[experiment]
+pursuer_speed = 0.5
+pursuer_turn_radius = 10.0
+pursuer_x = -5.0
+pursuer_y = 0.0
+pursuer_heading = 0.0
+
+evader_speed = 0.4
+evader_turn_radius = 5.0
+evader_x = 5.0
+evader_y = 0.0
+evader_heading = 0.0
+
+capture_radius = 1.0
+game_duration = 200
+
+[manager]
+num_generations = 1000
+evaluations_per_individual = 10
+mandatory_evaluations_only = false
+
+[default.generator]
+initial_size = 1000
+children_size = 1000
+mutation_fraction = 0.3
+tournament_size = 10
+copy_survivor_objectives = false
+using_hall_of_fame = false
+compute_diversity = false
+past_population_width = 10
+top_sampling_size = 10
+competitive_fitness_sharing = false
+
+[default.genotype]
+parsimony_weight = 0.001
+scale_parsimony_with_fitness = true
+
+[default.agent]
