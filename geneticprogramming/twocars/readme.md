@@ -1,5 +1,5 @@
 # Genetic Programming for the Game of Two Cars
-This example demonstrates the `modular-coevolution` library on a simple pursuit-evasion game.
+This example demonstrates the [modular-coevolution](https://github.com/SeanNHarris/modular-coevolution) library on a simple pursuit-evasion game.
 
 ## Game Description
 
@@ -309,15 +309,9 @@ if __name__ == '__main__':
 ```
 
 `CoevolutionDriver` has a built in argument parser to handle command line arguments, so we can pass the result directly to the driver and call its `start` method to begin the experiment.
-This will allow us to run the experiment from the command line with the following command (once everything else is written):
+This will allow us to run the experiment from the command line, as described in [Running the Experiment](#Running-the-Experiment).
 
-```shell
-python -m geneticprogramming.twocars.twocarsexperiment config/geneticprogramming/twocars/default.toml
-```
-
-Where the provided argument is the path to the configuration file for the experiment.
-We will discuss the configuration file later in this tutorial.
-A description of the additional command line arguments available is reproduced in [this readme](../../scripts/readme.md).
+You can find a completed example of the experiment class in [twocarsexperiment.py](twocarsexperiment.py).
 
 ## Agent Class
 
@@ -398,6 +392,8 @@ We also catch arithmetic errors caused by the tree and re-raise them as warnings
 
 And that's all we need to define the agent class, thanks to the provided template.
 Without the BaseGPTreeAgent superclass, the code isn't especially longer, but it's a lot more unintuitive to get right due to some details of the base agent design which may change in the future.
+
+You can find a completed example of the agent class in [agents/twocarsgpagent.py](agents/twocarsgpagent.py).
 
 ## Genetic Programming
 
@@ -543,14 +539,17 @@ def player_literal(fixed_context):
 
 A full example implementation of the `TwoCarsGPNode` class is provided in [gpnodes/twocarsgpnode.py](gpnodes/twocarsgpnode.py).
 Feel free to use this as a starting point, or design your own from scratch.
-The provided example implementation is simplified for demonstration purposes, and a number of improvements could be made,
-such as adding new sensors, adding trigonometric functions, or giving the agents some type of memory of past states.
+The example implementation is a bit artificially complex for demonstration purposes;
+in practice, it probably isn't necessary to use the `BOOL` data type or the `if_else` function for this problem.
+However, there are some additional features which might improve this set of nodes, 
+such as adding new sensors, adding trigonometric functions so it can work better with angles,
+or giving the agents some type of memory of past states.
 
 ### Design Tips
 
 - Think about how you might design a strategy to play this game, and identify what building blocks you'd need to make that in a tree.
   - When imagining how your nodes might be used, keep in mind how likely it is for a specific subtree to be discovered by chance.
-    If a node is only useful as part of a large complicated subtree, the EA may never figure out how to use it.
+    If a node is only useful as part of a large, complicated subtree, the EA may never figure out how to use it.
   - Consider doing part of the work for the EA by creating nodes which encapsulate a complicated but useful element.
 
 
@@ -679,7 +678,7 @@ if you want to read and process the logs from your experiment.
 
 ## Wrapping Up
 
-This tutorial should have left you with a good introduction to the `modular-coevolution` library and the use of its genetic programming tools in particular.
+This tutorial should have left you with a good introduction to the [modular-coevolution](https://github.com/SeanNHarris/modular-coevolution) library and the use of its genetic programming tools in particular.
 Hopefully, this knowledge will make it easier to understand the library and its documentation as a whole.
 
 If you have any questions, please contact Sean Harris, who maintains the library and this tutorial.

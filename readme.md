@@ -1,5 +1,5 @@
 # modular-coevolution Examples
-Example projects demonstrating the modular-coevolution library.
+Example projects demonstrating the [modular-coevolution](https://github.com/SeanNHarris/modular-coevolution) library.
 
 ### Example Projects:
 - [Genetic Programming for the Game of Two Cars](geneticprogramming/twocars) - A simple pursuit-evasion game with code demonstrating the use of genetic programming to evolve strategies.
