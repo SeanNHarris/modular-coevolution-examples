@@ -16,11 +16,11 @@ dependencies = [
 ]
 
 [project.urls]
-Github = "https://github.com/AU-ATLAS-N/constellation-coevolution"
+Github = "https://github.com/SeanNHarris/modular-coevolution-examples"
 
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-include = ["constellationcoevolution*"]
+include = ["geneticprogramming*"]
