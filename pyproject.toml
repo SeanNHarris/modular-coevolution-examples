@@ -12,7 +12,7 @@ dependencies = [
     "pycairo",
     "pillow",
     "tqdm",
-    "modular-coevolution@git+https://github.com/SeanNHarris/modular-coevolution",
+    "modular-coevolution@git+ssh://git@github.com/SeanNHarris/modular-coevolution.git",
 ]
 
 [project.urls]
