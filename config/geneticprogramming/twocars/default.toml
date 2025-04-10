@@ -1,4 +1,5 @@
 log_folder = "geneticprogramming/twocars/default"
+experiment_type = "geneticprogramming.twocars.twocarsexperiment.TwoCarsExperiment"
 
 [experiment]
 pursuer_speed = 0.5

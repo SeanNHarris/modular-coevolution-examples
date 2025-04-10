@@ -73,7 +73,7 @@ class TwoCarsExperiment(BaseExperiment):
     def _process_exhibition_results(self, agent_group, agent_numbers, agent_names, result, log_path):
         super()._process_exhibition_results(agent_group, agent_numbers, agent_names, result, log_path)
         number_string = '-'.join([str(number) for number in agent_numbers])
-        twocarsgame.render_evaluation_gif(result[-1]['states'], log_path + "/" + f'exhibitionRender{number_string}')
+        twocarsgame.render_evaluation_gif(result[-1]['states'], log_path / f'exhibitionRender{number_string}')
 
 
 if __name__ == '__main__':

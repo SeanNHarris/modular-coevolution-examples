@@ -242,8 +242,8 @@ def render_evaluation(full_states: list[TwoCarsState], path: str = None) -> cair
 
 
 def render_evaluation_gif(full_states: list[TwoCarsState], path: str, duration = 30) -> None:
-    if not path.endswith(".gif"):
-        path += ".gif"
+    if not str(path).endswith(".gif"):
+        path = str(path) + ".gif"
 
     frames = []
     for i in range(len(full_states)):

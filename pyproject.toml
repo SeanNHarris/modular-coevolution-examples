@@ -1,6 +1,6 @@
 [project]
 name = "modular-coevolution-examples"
-version = "2024.12.11"
+version = "2025.4.10"
 description = "Example projects demonstrating the modular-coevolution library"
 authors = [
     {name = "Sean N. Harris", email = "snh0037@auburn.edu"}

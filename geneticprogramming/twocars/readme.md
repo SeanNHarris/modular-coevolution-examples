@@ -291,26 +291,6 @@ def _process_exhibition_results(self, agent_group, agent_numbers, agent_names, r
     twocarsgame.render_evaluation_gif(result[-1]['states'], log_path + "/" + f'exhibitionRender{number_string}')
 ```
 
-### Calling the Driver
-
-Currently, it's standard to use the experiment class as the entry point for running the experiment.
-We do this by creating a [CoevolutionDriver](https://github.com/SeanNHarris/modular-coevolution/blob/master/modularcoevolution/drivers/coevolutiondriver.py) initialized with the experiment class and command line arguments:
-
-```python
-from modularcoevolution.drivers.coevolutiondriver import CoevolutionDriver
-
-
-if __name__ == '__main__':
-    parser = CoevolutionDriver.create_argument_parser()
-    args = parser.parse_args()
-
-    driver = CoevolutionDriver(TwoCarsExperiment, **vars(args))
-    driver.start()
-```
-
-`CoevolutionDriver` has a built in argument parser to handle command line arguments, so we can pass the result directly to the driver and call its `start` method to begin the experiment.
-This will allow us to run the experiment from the command line, as described in [Running the Experiment](#Running-the-Experiment).
-
 You can find a completed example of the experiment class in [twocarsexperiment.py](twocarsexperiment.py).
 
 ## Agent Class
@@ -605,6 +585,7 @@ These parameters are read by your experiment class, by the evolution modules, by
 Configuration files typically have the following elements, with a few important parameters highlighted:
 - `log_folder` - The path within the logs directory where results for this experiment will be saved.
   **Warning**: make sure to change this if you copy-paste the configuration file, or you'll overwrite your results.
+- `experiment_type` - The import path to the experiment class, which the driver will use to initialize the experiment.
 - `experiment` - Parameters specific to the experiment class. These were all defined in the [`__init__` method of the experiment class](#initialization).
 - `manager` - Parameters for the evolution/coevolution manager, which is the main component of the evolutionary algorithm.
   - `num_generations` - The number of generations to run the (co)evolutionary algorithm for.
@@ -641,15 +622,12 @@ Feel free to try out other settings for the game configuration or the evolutiona
 
 With the experiment class, agent class, and GP nodes implemented, and a configuration file set up,
 you can now run the experiment, either by using one of the [provided scripts](../../scripts/geneticprogramming/twocars),
-running `twocarsexperiment.py` from your IDE, or by running `twocarsexperiment.py` directly from the command line.
-
-In the latter two cases, make sure to run the experiment from the root directory of the repository.
-This is handled automatically by the provided scripts.
+or by running `modularcoevolution.drivers.coevolutiondriver` from your IDE or directly from the command line.
 
 You can run the experiment from the command line with the following minimal command:
 
 ```shell
-python -m geneticprogramming.twocars.twocarsexperiment config/geneticprogramming/twocars/default.toml
+python -m modularcoevolution.drivers.coevolutiondriver geneticprogramming/twocars/default.toml
 ```
 
 Where the provided argument is the path to the configuration file for the experiment.

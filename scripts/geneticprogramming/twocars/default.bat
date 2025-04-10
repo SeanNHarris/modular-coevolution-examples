@@ -1,3 +1,3 @@
 cd %~dp0
 cd ../../..
-python -m geneticprogramming.twocars.twocarsexperiment config/geneticprogramming/twocars/default.toml --exhibition-rate 50
+python -m modularcoevolution.drivers.coevolutiondriver geneticprogramming/twocars/default.toml --exhibition-rate 50
